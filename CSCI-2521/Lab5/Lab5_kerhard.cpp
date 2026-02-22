@@ -7,16 +7,31 @@
 
 #include <iostream>
 
+/**
+* @breif Outputs an error message if user provides invalid input
+* @param None.
+* @return None (void).
+*/
 void printInputValidationError()
 {
 	std::cout << "Error: The max digit must be greater than 4 and less than 10. Please try again." << std::endl;
 }
 
+/**
+* @breif Validates user input based on the range of digits
+* @param input - the user's integer to validate.
+* @return true if the user input is greater than 4 and less than 10. if otherwise, false.
+*/
 bool isMaxDigitInputValid(int input)
 {
 	return (input > 4 && input < 10);
 }
 
+/**
+* @breif Prompts the user for input and validates it
+* @param None.
+* @return A valid int representing the maximum digit.
+*/
 int getMaxDigitInput() {
 	
 	int maxDigit;
@@ -39,6 +54,11 @@ int getMaxDigitInput() {
 	}
 }
 
+/**
+* @breif Prints the formatted multiplication table
+* @param maxDigit - the highest digit to include in the table.
+* @return None (void).
+*/
 void printMultiplicationTable(int maxDigit) {
 
 	for (int i = 1; i <= maxDigit; i++)
@@ -51,6 +71,11 @@ void printMultiplicationTable(int maxDigit) {
 	}
 }
 
+/**
+* @breif Program entry point
+* @param None.
+* @return 0 to indicate success.
+*/
 int main() {
 
 	int maxDigit = getMaxDigitInput();
