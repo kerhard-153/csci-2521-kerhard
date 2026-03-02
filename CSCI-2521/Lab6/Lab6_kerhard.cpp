@@ -13,6 +13,111 @@ using namespace std;
 
 
 /**
+ * @brief Calculates the average of the scores in a static array.
+ * @param arr The array containing int scores.
+ * @param size The num of elements in the array.
+ * @return average score as a float.
+ */
+float calculateAverage(const int arr[], int size) {
+    
+    int sum = 0;
+    for (int i = 0; i < size; i++)
+    {
+        sum += arr[i];
+    }
+    return static_cast<float>(sum) / size;
+}
+
+/**
+ * @brief Finds the max score in a static array.
+ * @param arr The array containing int scores.
+ * @param size The num of elements in the array.
+ * @return The highest score.
+ */
+int findMax(const int arr[], int size)
+{
+    int maxVal = arr[0];
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] > maxVal)
+        {
+            maxVal = arr[i];
+        }
+    }
+    return maxVal;
+}
+
+/**
+ * @brief Finds the min score in a static array.
+ * @param arr The array containing int scores.
+ * @param size The num of elements in the array.
+ * @return The lowest score.
+ */
+int findMin(const int arr[], int size)
+{
+    int minVal = arr[0];
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] < minVal)
+        {
+            minVal = arr[i];
+        }
+    }
+    return minVal;
+}
+
+/**
+ * @brief Calculates the average of the scores in a vector.
+ * @param vec The vector containing int scores.
+ * @return The average score as a float.
+ */
+float calculateAverage(const vector<int>& vec)
+{
+    int sum = 0;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        sum += vec[i];
+    }
+    return static_cast<float>(sum) / vec.size();
+}
+
+/**
+ * @brief Finds the max score in a vector.
+ * @param vec The vector containing int scores.
+ * @return The highest score.
+ */
+int findMax(const vector<int>& vec)
+{
+    int maxVal = vec[0];
+    for (int i = 1; i < vec.size(); i++)
+    {
+        if (vec[i] > maxVal)
+        {
+            maxVal = vec[i];
+        }
+    }
+    return maxVal;
+}
+
+/**
+ * @brief Finds the min score in a vector.
+ * @param vec The vector containing int scores.
+ * @return The lowest score.
+ */
+int findMin(const vector<int>& vec)
+{
+    int minVal = vec[0];
+    for (int i = 1; i < vec.size(); i++)
+    {
+        if (vec[i] < minVal)
+        {
+            minVal = vec[i];
+        }
+    }
+    return minVal;
+}
+
+/**
  * @brief Calculates statistics using a fixed-size static array.
  * @param None.
  * @return None.
@@ -44,26 +149,9 @@ void arraySolution()
         }
     }
 
-    int sum = 0;
-    int highest = scores[0];
-    int lowest = scores[0];
-
-    for (int i = 0; i < SIZE; i++)
-    {
-        sum += scores[i];
-
-        if (scores[i] > highest)
-        {
-            highest = scores[i];
-        }
-
-        if (scores[i] < lowest)
-        {
-            lowest = scores[i];
-        }
-    }
-
-    float average = static_cast<float>(sum) / SIZE;
+    float average = calculateAverage(scores, SIZE);
+    int highest = findMax(scores, SIZE);
+    int lowest = findMin(scores, SIZE);
 
     cout << "\nArray Statistics:" << endl;
     cout << "Average Score: " << average << endl;
@@ -109,26 +197,9 @@ void vectorSolution()
         return;
     }
 
-    int sum = 0;
-    int highest = scores[0];
-    int lowest = scores[0];
-
-    for (size_t i = 0; i < scores.size(); i++)
-    {
-        sum += scores[i];
-
-        if (scores[i] > highest)
-        {
-            highest = scores[i];
-        }
-
-        if (scores[i] < lowest)
-        {
-            lowest = scores[i];
-        }
-    }
-
-    float average = static_cast<float>(sum) / scores.size();
+    float average = calculateAverage(scores);
+    int highest = findMax(scores);
+    int lowest = findMin(scores);
 
     sort(scores.begin(), scores.end());
 
