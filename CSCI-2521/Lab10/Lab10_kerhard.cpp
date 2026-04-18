@@ -1,3 +1,10 @@
+/**
+ * @file Lab10_kerhard.cpp
+ * @author Kate Erhard
+ * @date 2026-04-18
+ * @brief Demonstrates file output by saving savings account data to a text file.
+ */
+
 #include<iostream>
 #include "SavingsAccount.h"
 
@@ -40,11 +47,15 @@ int main()
             break;
         case CLOSE_OF_BUSINESS:
             account->closeOfBusiness();
+            ((SavingsAccount*)account)->Save();
             break;
         }
 
         menuChoice = getMenuOption();
     }
+
+    delete account;
+    return 0;
 }
 
 void printMenu()

@@ -1,4 +1,6 @@
 #include "SavingsAccount.h"
+#include <fstream>
+#include <iomanip>
 
 SavingsAccount::SavingsAccount() : interest(1)
 {
@@ -33,4 +35,23 @@ void SavingsAccount::printAccountInfo() const
     cout << "Current Balance: $" << balance << endl;
     cout << "Interest Rate: " << interest * 100 << "%" << endl;
     owner.printCustomerInfo();
+}
+
+/**
+ * @brief Saves the account information to a text file.
+ */
+void SavingsAccount::Save() const
+{
+    ofstream outFile("account_summary.txt");
+
+    outFile << "Account Number: " << accountNumber << endl;
+    outFile << endl;
+
+    outFile << fixed << setprecision(2);
+    outFile << "Current Balance: $" << balance << endl;
+    outFile << endl;
+
+    outFile << "Daily Interest Rate: " << interest << endl;
+
+    outFile.close();
 }
